@@ -19,4 +19,21 @@ public interface UsuarioRepository extends JpaRepository<Usuario, UUID> {
     @Query("select u.name as nome from Usuario u")
     List<UsuarioProjections> buscarNomesUsuariosProjections();
 
+    //Query derivadas
+
+    // buscando por nome e  ignorando maiuscula e minusculas
+    List<Usuario> findByNameIgnoreCase(String name);
+
+    // limitando registro em tres consultas
+    List<Usuario> findTop2By();
+
+    //Buscando por nome que contenha um determinado trecho
+
+    List<Usuario> findByNameContains(String name);
+
+    //Buscando por nome que contenha um determinado trecho ignorando case
+
+    List<Usuario> findByNameContainsIgnoreCase(String name);
+
+
 }

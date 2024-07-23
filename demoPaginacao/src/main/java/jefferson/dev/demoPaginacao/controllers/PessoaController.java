@@ -4,10 +4,7 @@ import jefferson.dev.demoPaginacao.service.PessoaService;
 import jefferson.dev.demoPaginacao.service.UsuarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/pessoa")
 @RestController
@@ -38,6 +35,31 @@ public class PessoaController {
     public ResponseEntity<?> buscarNomesUsuariosProjections() {
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.buscarNomesUsuariosProjections());
     }
+
+    @GetMapping("/paginacao/usuario/ignoreCase/{name}")
+    public ResponseEntity<?> findByNomeIgnoreCase(@PathVariable String name) {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findByNomeIgnoreCase(name));
+    }
+
+    @GetMapping("/paginacao/usuario/top2")
+    public ResponseEntity<?> findTop2By() {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findTop2By());
+    }
+
+    @GetMapping("/paginacao/usuario/contains/{name}")
+    public ResponseEntity<?> findByNomeContains(@PathVariable String name) {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findByNomeContains(name));
+    }
+
+    @GetMapping("/paginacao/usuario/containsIgnoreCase/{name}")
+    public ResponseEntity<?> findByNomeContainsIgnoreCase(@PathVariable String name) {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findByNomeContainsIgnoreCase(name));
+    }
+
+
+
+
+
 
 
 }
