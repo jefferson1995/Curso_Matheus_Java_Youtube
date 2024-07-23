@@ -31,7 +31,12 @@ public class PessoaController {
 
     @GetMapping("/paginacao/usuario")
     public ResponseEntity<?> findAll() {
-        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findAllUsurioDTO());
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findAllUsuarioDTO());
+    }
+
+    @GetMapping("/paginacao/usuario/projections")
+    public ResponseEntity<?> buscarNomesUsuariosProjections() {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.buscarNomesUsuariosProjections());
     }
 
 
