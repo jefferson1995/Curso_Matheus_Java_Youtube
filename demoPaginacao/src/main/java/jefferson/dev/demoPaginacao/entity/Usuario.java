@@ -14,12 +14,13 @@ import java.util.UUID;
 @NoArgsConstructor
 @Data
 @Entity
-public class Pessoa {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID pessoaId;
+    private UUID usuarioId;
     private String name;
-    private int idade;
+    private String login;
+    private String password;
 
 }
